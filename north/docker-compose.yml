@@ -1,0 +1,11 @@
+services:
+ north:
+  container_name: north
+  build:
+      context: .
+      dockerfile: Dockerfile
+  restart: unless-stopped
+  volumes:
+      - ./db.sqlite3:/app/db.sqlite3
+  ports:
+   - "80:80"
