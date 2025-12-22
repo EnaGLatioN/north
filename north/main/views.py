@@ -6,7 +6,6 @@ from main import models
 
 def main(request):
     lines = models.Line.objects.all().prefetch_related("tabacco_set")
-    response = {}
     data = [
         {
             "line": line.title,
@@ -14,7 +13,8 @@ def main(request):
             "tabaccos": [
                 {
                     "title": tabacco.name,
-                    "image": tabacco.image.url
+                    "image": tabacco.image.url,
+                    "description": tabacco.description,
                 } for tabacco in line.tabacco_set.all()
             ]
         } for line in lines
