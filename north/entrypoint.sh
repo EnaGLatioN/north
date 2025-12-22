@@ -10,7 +10,7 @@ echo "Используемый IP: $ENV_IP"
 echo "Используемый порт:$ENV_PORT"
 
 COMMANDS=(
-    "python -m manage migrate",
+    "python -m manage migrate"
     "python -m manage runserver $ENV_IP:$ENV_PORT"
 )
 
