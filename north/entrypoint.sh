@@ -5,7 +5,7 @@ set -e
 echo "Переданные переменные окружения:"
 env | grep -E '^[A-Z0-9_]+' || echo "Нет переменных."
 ENV_IP="${ENV_IP:-0.0.0.0}"
-ENV_PORT="${ENV_PORT:-80}"
+ENV_PORT="${ENV_PORT:-8000}"
 echo "Используемый IP: $ENV_IP"
 echo "Используемый порт:$ENV_PORT"
 

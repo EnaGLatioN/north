@@ -59,6 +59,11 @@ class Tabacco(models.Model):
         null=True,
         blank=True
     )
+    description = models.TextField(
+        "Описание",
+        null=True,
+        blank=True
+    )
 
     class Meta:
         verbose_name = "Табак"
