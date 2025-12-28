@@ -10,6 +10,22 @@ class Line(models.Model):
         "Тайтл",
         max_length=256
     )
+    slug_china = models.CharField(
+        "Слаг китайский",
+        max_length=256,
+    )
+    title_china = models.CharField(
+        "Тайтл китайский",
+        max_length=256
+    )
+    slug_eng = models.CharField(
+        "Слаг английский",
+        max_length=256,
+    )
+    title_eng = models.CharField(
+        "Тайтл английский",
+        max_length=256
+    )
     order = models.IntegerField(
         "Очередь"
     )
@@ -26,6 +42,14 @@ class Line(models.Model):
 class TagTabacco(models.Model):
     title = models.CharField(
         "Тайтл",
+        max_length=256
+    )
+    title_eng = models.CharField(
+        "Тайтл английский",
+        max_length=256
+    )
+    title_china = models.CharField(
+        "Тайтл китайский",
         max_length=256
     )
     color = models.CharField(
@@ -48,6 +72,14 @@ class Tabacco(models.Model):
         "Название",
         max_length=256
     )
+    name_china = models.CharField(
+        "Название китайское",
+        max_length=256
+    )
+    name_eng = models.CharField(
+        "Название английский",
+        max_length=256
+    )
     line = models.ManyToManyField(
         Line
     )
@@ -56,11 +88,19 @@ class Tabacco(models.Model):
     )
     image = models.ImageField(
         "Картинка",
-        null=True,
-        blank=True
     )
     description = models.TextField(
         "Описание",
+        null=True,
+        blank=True
+    )
+    description_china = models.TextField(
+        "Описание китайское",
+        null=True,
+        blank=True
+    )
+    description_eng = models.TextField(
+        "Описание английский",
         null=True,
         blank=True
     )

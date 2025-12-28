@@ -15,8 +15,19 @@ def main(request):
                     "title": tabacco.name,
                     "image": tabacco.image.url,
                     "description": tabacco.description,
+                    "title_eng": tabacco.name_eng,
+                    "description_eng": tabacco.description_eng,
+                    "title_china": tabacco.name_china,
+                    "description_china": tabacco.description_china,
+                    "tags": [{
+                        "title": tag.title,
+                        "title_eng": tag.title_eng,
+                        "title_china": tag.title_china,
+                        "color": tag.color
+                        } for tag in tabacco.tag.all()]
                 } for tabacco in line.tabacco_set.all()
-            ]
+            ],
+
         } for line in lines
     ]
     return JsonResponse(
