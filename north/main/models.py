@@ -72,6 +72,20 @@ class TagTabacco(models.Model):
         return self.title
 
 
+class WeightTabacco(models.Model):
+    weight = models.IntegerField(
+        "Вес"
+    )
+
+    class Meta:
+        verbose_name = "Вес"
+        verbose_name_plural = "Веса"
+        ordering = ("weight",)
+
+    def __str__(self) -> str:
+        return self.weight
+
+
 class Tabacco(models.Model):
     name = models.CharField(
         "Название",
@@ -90,6 +104,9 @@ class Tabacco(models.Model):
     )
     tag = models.ManyToManyField(
         TagTabacco
+    )
+    weight = models.ManyToManyField(
+        WeightTabacco
     )
     image = models.ImageField(
         "Картинка",
@@ -152,4 +169,4 @@ class Order(models.Model):
 
     def __str__(self) -> str:
         return str(self.full_name)
-    
+

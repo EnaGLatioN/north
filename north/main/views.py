@@ -5,11 +5,15 @@ from main import models
 
 
 def main(request):
-    lines = models.Line.objects.all().prefetch_related("tabacco_set")
+    lines = models.Line.objects.all().prefetch_related("tabacco_set").order_by("order")
     data = [
         {
             "line": line.title,
             "slug": line.slug,
+            "line_china": line.title_china,
+            "slug_china": line.slug_china,
+            "line_eng": line.title_eng,
+            "slug_eng": line.slug_eng,
             "tabaccos": [
                 {
                     "title": tabacco.name,
