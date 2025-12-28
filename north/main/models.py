@@ -82,7 +82,7 @@ class WeightTabacco(models.Model):
         verbose_name_plural = "Веса"
         ordering = ("weight",)
 
-    def __str__(self) -> str:
+    def __int__(self) -> int:
         return self.weight
 
 
