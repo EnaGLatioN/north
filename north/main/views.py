@@ -29,7 +29,10 @@ def main(request):
                         "title_china": tag.title_china,
                         "color": tag.color,
                         "text_color": tag.text_color
-                        } for tag in tabacco.tag.all()]
+                        } for tag in tabacco.tag.all()
+                    ],
+                    "weights": [weight.weight for weight in tabacco.weight.all()]
+
                 } for tabacco in line.tabacco_set.all()
             ],
 
