@@ -23,7 +23,8 @@ def main(request):
                         "title": tag.title,
                         "title_eng": tag.title_eng,
                         "title_china": tag.title_china,
-                        "color": tag.color
+                        "color": tag.color,
+                        "text_color": tag.color
                         } for tag in tabacco.tag.all()]
                 } for tabacco in line.tabacco_set.all()
             ],

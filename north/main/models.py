@@ -57,6 +57,11 @@ class TagTabacco(models.Model):
         max_length=256,
         help_text="Цвет в hex"
     )
+    text_color = models.CharField(
+        "Цвет текста",
+        max_length=256,
+        help_text="Цвет в hex"
+    )
 
     class Meta:
         verbose_name = "Тэг"
