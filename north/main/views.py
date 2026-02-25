@@ -34,7 +34,7 @@ def main(request):
                     ],
                     "weights": [weight.weight for weight in tabacco.weight.all()]
 
-                } for tabacco in line.tabacco_set.all()
+                } for tabacco in line.tabacco_set.all().order_by("order")
             ],
 
         } for line in lines
