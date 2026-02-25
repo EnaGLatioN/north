@@ -126,11 +126,15 @@ class Tabacco(models.Model):
         null=True,
         blank=True
     )
+    order = models.IntegerField(
+        "Очередь",
+        default=0,
+    )
 
     class Meta:
         verbose_name = "Табак"
         verbose_name_plural = "Табаки"
-        ordering = ("name",)
+        ordering = ("order",)
 
     def __str__(self) -> str:
         return self.name
