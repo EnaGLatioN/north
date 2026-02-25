@@ -85,8 +85,8 @@ class WeightTabacco(models.Model):
     def __int__(self) -> int:
         return self.weight
 
-    def __str__(self) -> int:
-        return self.weight
+    def __str__(self) -> str:
+        return str(self.weight)
 
 
 class Tabacco(models.Model):
