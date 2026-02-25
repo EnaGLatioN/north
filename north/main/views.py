@@ -23,7 +23,6 @@ def main(request):
                     "description_eng": tabacco.description_eng,
                     "title_china": tabacco.name_china,
                     "description_china": tabacco.description_china,
-                    "order": tabacco.order,
                     "tags": [{
                         "title": tag.title,
                         "title_eng": tag.title_eng,
