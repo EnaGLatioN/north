@@ -85,6 +85,9 @@ class WeightTabacco(models.Model):
     def __int__(self) -> int:
         return self.weight
 
+    def __str__(self) -> int:
+        return self.weight
+
 
 class Tabacco(models.Model):
     name = models.CharField(
