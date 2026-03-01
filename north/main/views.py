@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseNotAllowed
 from django.views.decorators.csrf import csrf_exempt
 
 from main import models
@@ -47,13 +47,15 @@ def main(request):
 @csrf_exempt
 def order(request):
     if request.method != "POST":
-        raise 
+        return HttpResponseNotAllowed(["POST"])
+
     order = models.Order()
     order.full_name = request.POST["full_name"]
     order.company_name = request.POST["company_name"]
     order.city = request.POST["city"]
     order.contact = request.POST["contact"]
     order.save()
+
     data = {
         "order": {
             "id": order.id,
@@ -63,7 +65,4 @@ def order(request):
             "contact": order.contact
         }
     }
-    return JsonResponse(
-        data=data,
-        safe=False,
-    )
+    return JsonResponse(data)
