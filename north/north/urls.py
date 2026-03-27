@@ -25,5 +25,7 @@ from main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/lines', views.main),
-    path('api/order', views.order)
+    path('api/order', views.order),
+    path('api/map_info', views.map_info),
+    path('api/map-point/<int:map_id>/', views.map_point),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
