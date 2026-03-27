@@ -263,6 +263,12 @@ class MapPoint(models.Model):
         null=True,
         max_length=255
     )
+    country = models.CharField(
+        "Страна",
+        blank=True,
+        null=True,
+        max_length=255
+    )
     country_eng = models.CharField(
         "Страна eng",
         blank=True,
