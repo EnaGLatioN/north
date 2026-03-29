@@ -1,5 +1,9 @@
 from django.db import models
-from django.db.models import TextChoices
+
+from django.core.validators import (
+    MinValueValidator,
+    MaxValueValidator
+)
 
 
 class Line(models.Model):
@@ -274,17 +278,23 @@ class MapPoint(models.Model):
         help_text="Дата последнего изменения, для служебного пользования.",
         verbose_name="Дата изменения",
     )
-    coordinate_x = models.CharField(
-        "Координата X",
-        blank=True,
-        null=True,
-        max_length=255
+    latitude = models.DecimalField(
+        max_digits=8,
+        decimal_places=6,
+        validators=[
+            MinValueValidator(-90.0),
+            MaxValueValidator(90.0)
+        ],
+        default=0
     )
-    coordinate_y = models.CharField(
-        "Координата Y",
-        blank=True,
-        null=True,
-        max_length=255
+    longitude = models.DecimalField(
+        max_digits=9,
+        decimal_places=6,
+        validators=[
+            MinValueValidator(-180.0),
+            MaxValueValidator(180.0)
+        ],
+        default=0
     )
     map_info = models.ForeignKey(
         MapCountry,
