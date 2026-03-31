@@ -261,6 +261,36 @@ class MapPoint(models.Model):
         null=True,
         max_length=255
     )
+    website = models.CharField(
+        "Сайт",
+        blank=True,
+        null=True,
+        max_length=255
+    )
+    soc_max = models.CharField(
+        " MAX",
+        blank=True,
+        null=True,
+        max_length=255
+    )
+    soc_telegram = models.CharField(
+        "Telegram",
+        blank=True,
+        null=True,
+        max_length=255
+    )
+    soc_vk = models.CharField(
+        "VK",
+        blank=True,
+        null=True,
+        max_length=255
+    )
+    soc_inst = models.CharField(
+        "Instagram",
+        blank=True,
+        null=True,
+        max_length=255
+    )
     is_active = models.BooleanField(
         verbose_name="Активен?",
         help_text="Активен?",
@@ -309,3 +339,4 @@ class MapPoint(models.Model):
 
     def __str__(self) -> str:
         return str(self.name)
+
